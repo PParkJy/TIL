@@ -15,11 +15,48 @@ output = 5G_BG(num)_iLS(num)_Zc(num).proto 이름으로 바로 알아볼 수 있
 
 import csv
 
-#사용자의 입력 처리 -> 예외처리 해줘야 함(정수가 아닌 것을 입력했을 때, 해당 정수에 매칭되는 값이 없을 때)
+#사용자의 입력 처리
 def get_input():
-    BG = int(input("사용할 LDPC base graph의 종류(1 or 2): ")) #1이나 2 입력
-    iLS = int(input("index iLS의 값: ")) #0이나 4 입력
-    Zc = int(input("lifting size Zc의 값: "))
+    while 1:
+        BG = int(input("사용할 LDPC base graph의 종류(1 or 2): ")) #1이나 2 입력
+        if BG == 1 or BG == 2:
+            break
+        print("잘못된 수를 입력함")
+
+    while 1:
+        iLS = int(input("index iLS의 값: ")) #0이나 4 입력
+        if iLS >= 0 and iLS <= 7 and type(iLS) is int:
+            break 
+        print("잘못된 수를 입력함")
+    
+    while 1:
+        Zc = int(input("lifting size Zc의 값: "))
+        if iLS == 0:
+            if Zc in [2, 4, 8, 16, 32, 64, 128, 256]:
+                break
+        elif iLS == 1:
+            if Zc in [3, 6, 12, 24, 48, 96, 192, 384]:
+                break
+        elif iLS == 2:
+            if Zc in [5, 10, 20, 40, 80, 160, 320]:
+                break
+        elif iLS == 3:
+            if Zc in [7, 14, 28, 56, 112, 224]:
+                break
+        elif iLS == 4:
+            if Zc in [9, 18, 36, 72, 144, 288]:
+                break
+        elif iLS == 5:
+            if Zc in [11, 22, 44, 88, 176, 352]:
+                break
+        elif iLS == 6:
+            if Zc in [13, 26, 52, 104, 208]:
+                break
+        elif iLS == 7:
+            if Zc in [15, 30, 60, 120, 240]:
+                break
+        print("잘못된 수를 입력함")
+    
     return BG, iLS, Zc
 
 
@@ -109,6 +146,6 @@ write_proto(BG_data, value, rows, cols, Zc, savename)
 
 '''
 보완할 점
-- 사용자 입력에 대한 예외처리
-- for문의 과다한 사용
+- csv 파일은 수동 작업을 만들었으므로 오류 있을 수 있음ㅎㅎ
+- if문, for문의 과다한 사용
 '''
