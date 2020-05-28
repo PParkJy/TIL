@@ -1,0 +1,2 @@
+D:\jiyeon\jiyeon\project\TIL\algorithm\Sequence_Alignment\SA\Debug\sequence_alignment.exe
+D:\jiyeon\jiyeon\project\TIL\algorithm\Sequence_Alignment\SA\Debug\sequence_alignment.pdb
