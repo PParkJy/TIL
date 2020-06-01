@@ -10,7 +10,7 @@ import matplotlib.pyplot as mpt
 
 # 1.Equalization
 #cv2.imread로 이미지를 불러오되 IMREAD_GRAYSCALE 속성을 추가하여 흑백 이미지로 읽어온다.
-cvGrayImg1 = cv2.imread("dark.jpeg", cv2.IMREAD_GRAYSCALE)
+cvGrayImg1 = cv2.imread("wallet.jpg", cv2.IMREAD_GRAYSCALE)
 #cv2.equalizaHist로 흑백 이미지에 히스토그램 평활화를 적용한다.
 eqImg = cv2.equalizeHist(cvGrayImg1)
 
